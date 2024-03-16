@@ -7,7 +7,7 @@ import LoginScreen from "./components/LoginScreen";
 import SignupScreen from "./components/SignupScreen";
 
 //importing dashboard
-import QuestionDashboardScreen from "./components/QuestionDashboardScreen";
+import QuestionDashboardScreen from "./components/Dashboard/QuestionDashboardScreen";
 
 
 function App() {
