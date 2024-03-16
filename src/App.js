@@ -6,6 +6,9 @@ import SplashScreen from "./components/SplashScreen";
 import LoginScreen from "./components/LoginScreen";
 import SignupScreen from "./components/SignupScreen";
 
+//importing dashboard
+import QuestionDashboardScreen from "./components/QuestionDashboardScreen";
+
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -27,6 +30,7 @@ function App() {
             element={showSplash ? <SplashScreen /> : <LoginScreen />}
           />
           <Route path="/register" element={<SignupScreen />} />
+          <Route path="/dashboard" element={<QuestionDashboardScreen />} />
         </Routes>
       </div>
     </Router>
