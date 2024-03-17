@@ -81,36 +81,8 @@ function Sidebar() {
               className="nav-link collapsed"
             >
               <i className="bi bi-dash-circle"></i>
-              <span> Try AVA </span>
+              <span> Upload Resume/cv </span>
             </a>
-          </li>
-
-          <li className="nav-item dropdown">
-            <a href="#" className="nav-link">
-              <i className="bi bi-gem"></i>
-              <span> Mindful Minutes </span>
-              <i className="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul className="dropdown-menu">
-              <li>
-                <a href="yoga.html">
-                  <i className="bi bi-circle"></i>
-                  <span> Yoga </span>
-                </a>
-              </li>
-              <li>
-                <a href="exercise.html">
-                  <i className="bi bi-circle"></i>
-                  <span> Exercise </span>
-                </a>
-              </li>
-              <li>
-                <a href="mind_planning.html">
-                  <i className="bi bi-circle"></i>
-                  <span> Mental Health To-do list </span>
-                </a>
-              </li>
-            </ul>
           </li>
 
           <li className="nav-item">
@@ -121,7 +93,7 @@ function Sidebar() {
               data-bs-toggle="collapse"
             >
               <i className="bi bi-bar-chart"></i>
-              <span> Tracking </span>
+              <span> Notification </span>
             </a>
             <ul
               id="charts-nav"
@@ -131,19 +103,16 @@ function Sidebar() {
           </li>
 
           <li className="nav-item">
-            <a
-              onClick={() => navigate("/diagnoser")}
-              className="nav-link collapsed"
-            >
+            <a className="nav-link collapsed" href="community.html">
               <i className="bi bi-person"></i>
-              <span> Self-diagnoser </span>
+              <span> Assessment Questions </span>
             </a>
           </li>
 
           <li className="nav-item">
             <a className="nav-link collapsed" href="community.html">
               <i className="bi bi-person"></i>
-              <span> Community </span>
+              <span> Help/Support </span>
             </a>
           </li>
 
