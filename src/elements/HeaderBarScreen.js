@@ -8,9 +8,9 @@ import "../../assets/dashboard/assets/vendor/quill/quill.bubble.css";
 import "../../assets/dashboard/assets/vendor/remixicon/remixicon.css";
 import "../../assets/dashboard/assets/vendor/simple-datatables/style.css";
 
-import Sidebar from "../../elements/Sidebar";
+import Sidebar from "./Siidebar";
 
-function QuestionDashboardScreen() {
+function HeaderBarScreen() {
     const [answers, setAnswers] = useState({});
     const [resume, setResume] = useState(null);
 
@@ -260,4 +260,4 @@ function QuestionDashboardScreen() {
     );
 }
 
-export default QuestionDashboardScreen;
+export default HeaderBarScreen;

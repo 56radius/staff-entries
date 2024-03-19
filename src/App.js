@@ -8,6 +8,7 @@ import SignupScreen from "./components/SignupScreen";
 
 //importing dashboard
 import QuestionDashboardScreen from "./components/Dashboard/QuestionDashboardScreen";
+import AssessmentQuestionsScreen from "./components/Dashboard/AssessmentQuestionsScreen";
 
 //importing Admin components
 import AdminDashboardScreen from "./components/Admin/AdminDashboardScreen";
@@ -34,6 +35,7 @@ function App() {
           />
           <Route path="/register" element={<SignupScreen />} />
           <Route path="/dashboard" element={<QuestionDashboardScreen />} />
+          <Route path="/assessment" element={<AssessmentQuestionsScreen />} />
           <Route path="/admin" element={<AdminDashboardScreen/>} />
         </Routes>
       </div>

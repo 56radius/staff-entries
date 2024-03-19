@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import "../../assets/dashboard/assets/css/style.css";
 import "../../assets/dashboard/assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../../assets/dashboard/assets/vendor/bootstrap-icons/bootstrap-icons.css";
@@ -8,9 +8,10 @@ import "../../assets/dashboard/assets/vendor/quill/quill.bubble.css";
 import "../../assets/dashboard/assets/vendor/remixicon/remixicon.css";
 import "../../assets/dashboard/assets/vendor/simple-datatables/style.css";
 
-import Sidebar from "../../elements/Sidebar";
+//importing the sidebar
+import Sidebar from "../../elements/Sidebar"; 
 
-function QuestionDashboardScreen() {
+function AssessmentQuestionsScreen() {
     const [answers, setAnswers] = useState({});
     const [resume, setResume] = useState(null);
 
@@ -260,4 +261,4 @@ function QuestionDashboardScreen() {
     );
 }
 
-export default QuestionDashboardScreen;
+export default AssessmentQuestionsScreen;

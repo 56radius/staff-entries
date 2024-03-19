@@ -103,7 +103,9 @@ function Sidebar() {
           </li>
 
           <li className="nav-item">
-            <a className="nav-link collapsed" href="community.html">
+            <a 
+            onClick={() => navigate("/assessment")}
+            className="nav-link collapsed">
               <i className="bi bi-person"></i>
               <span> Assessment Questions </span>
             </a>
