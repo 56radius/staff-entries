@@ -112,7 +112,9 @@ function Sidebar() {
           </li>
 
           <li className="nav-item">
-            <a className="nav-link collapsed" href="community.html">
+            <a 
+            onClick={() => navigate("/help")}
+            className="nav-link collapsed">
               <i className="bi bi-person"></i>
               <span> Help/Support </span>
             </a>
