@@ -15,6 +15,8 @@ import ".././assets/vendor/glightbox/css/glightbox.min.css";
 import ".././assets/vendor/remixicon/remixicon.css";
 import ".././assets/vendor/swiper/swiper-bundle.min.css";
 
+// Import your background image
+import backgroundImage from "../assets/img/adminblock.jpeg";
 
 function LoginScreen() {
   const navigate = useNavigate();
@@ -56,7 +58,7 @@ function LoginScreen() {
   };
 
   return (
-    <div>
+    <div style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <main>
         <div className="container">
           <section className="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
@@ -72,8 +74,7 @@ function LoginScreen() {
                       href="index.html"
                       className="logo d-flex align-items-center w-auto"
                     >
-                    
-                       
+                      
                     </button>
                   </div>
                   <form action="" className="mt" method="post">
