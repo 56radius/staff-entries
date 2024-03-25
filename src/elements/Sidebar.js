@@ -77,7 +77,7 @@ function Sidebar() {
 
           <li className="nav-item">
             <a
-              onClick={() => navigate("/tryava")}
+              onClick={() => navigate("/upload")}
               className="nav-link collapsed"
             >
               <i className="bi bi-dash-circle"></i>

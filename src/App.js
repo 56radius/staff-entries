@@ -8,6 +8,7 @@ import SignupScreen from "./components/SignupScreen";
 
 //importing dashboard
 import QuestionDashboardScreen from "./components/Dashboard/QuestionDashboardScreen";
+import UploadResumeScreen from "./components/Dashboard/UploadResumeScreen";
 import AssessmentQuestionsScreen from "./components/Dashboard/AssessmentQuestionsScreen";
 import HelpSupportScreen from "./components/Dashboard/HelpSupportScreen";
 
@@ -36,6 +37,7 @@ function App() {
           />
           <Route path="/register" element={<SignupScreen />} />
           <Route path="/dashboard" element={<QuestionDashboardScreen />} />
+          <Route path="/upload" element={<UploadResumeScreen />} />
           <Route path="/assessment" element={<AssessmentQuestionsScreen />} />
           <Route path="/help" element={<HelpSupportScreen />} />
           <Route path="/admin" element={<AdminDashboardScreen/>} />
