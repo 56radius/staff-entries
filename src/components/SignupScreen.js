@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { authConfig } from "../backend/firebase.config";
 import { useNavigate } from "react-router-dom";
+
+// Import your background image
+import Image from "../assets/img/image.jpeg";
 import Swal from "sweetalert2";
 
 function SignupScreen() {
@@ -54,6 +57,7 @@ function SignupScreen() {
   };
 
   return (
+    <div style={{ backgroundImage: `url(${Image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
     <main>
       <div className="container">
         <section className="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
@@ -246,6 +250,7 @@ function SignupScreen() {
         </section>
       </div>
     </main>
+    </div>
   );
 }
 
