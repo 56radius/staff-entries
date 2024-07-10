@@ -1,22 +1,21 @@
 import React, { useState } from "react";
-
 import { useNavigate } from "react-router-dom";
-
-//importing css code
-import ".././assets/dashboard/assets/css/style.css";
-
-//importing css vendor variables
-import ".././assets/dashboard/assets/vendor/bootstrap/css/bootstrap.min.css";
-import ".././assets/dashboard/assets/vendor/bootstrap-icons/bootstrap-icons.css";
-import ".././assets/dashboard/assets/vendor/boxicons/css/boxicons.min.css";
-import ".././assets/dashboard/assets/vendor/quill/quill.snow.css";
-import ".././assets/dashboard/assets/vendor/quill/quill.bubble.css";
-import ".././assets/dashboard/assets/vendor/remixicon/remixicon.css";
-import ".././assets/dashboard/assets/vendor/simple-datatables/style.css";
-
-//firebase auth for sign out
-import { getAuth, signOut } from "firebase/auth";
 import Swal from "sweetalert2";
+
+// Importing CSS code
+import "../assets/dashboard/assets/css/style.css";
+
+// Importing CSS vendor variables
+import "../assets/dashboard/assets/vendor/bootstrap/css/bootstrap.min.css";
+import "../assets/dashboard/assets/vendor/bootstrap-icons/bootstrap-icons.css";
+import "../assets/dashboard/assets/vendor/boxicons/css/boxicons.min.css";
+import "../assets/dashboard/assets/vendor/quill/quill.snow.css";
+import "../assets/dashboard/assets/vendor/quill/quill.bubble.css";
+import "../assets/dashboard/assets/vendor/remixicon/remixicon.css";
+import "../assets/dashboard/assets/vendor/simple-datatables/style.css";
+
+// Firebase auth for sign out
+import { getAuth, signOut } from "firebase/auth";
 
 function Sidebar() {
   const navigate = useNavigate();
@@ -53,10 +52,24 @@ function Sidebar() {
       }
     });
   };
-  
+
+  const handleAssessmentClick = () => {
+    // Check if a service has been selected
+    const serviceSelected = localStorage.getItem("selectedService");
+
+    if (!serviceSelected) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please click on a service in the Dashboard first!",
+      });
+    } else {
+      navigate("/assessment");
+    }
+  };
+
   return (
     <div style={{ background: "#f6f9ff" }}>
-      {/* second header or aside header */}
       <aside id="sidebar" className="sidebar">
         <ul className="sidebar-nav" id="sidebar-nav">
           <li className="nav-item">
@@ -67,9 +80,7 @@ function Sidebar() {
           </li>
 
           <li className="nav-item">
-            <a 
-            onClick={() => navigate("/profile")}
-            className="nav-link collapsed">
+            <a onClick={() => navigate("/profile")} className="nav-link collapsed">
               <i className="bi bi-person"></i>
               <span> Profile </span>
             </a>
@@ -77,7 +88,7 @@ function Sidebar() {
 
           <li className="nav-item">
             <a
-              onClick={() => navigate("/tracking")}
+              onClick={() => navigate("/notification")}
               className="nav-link collapsed"
               data-bs-target="#charts-nav"
               data-bs-toggle="collapse"
@@ -93,18 +104,14 @@ function Sidebar() {
           </li>
 
           <li className="nav-item">
-            <a 
-            onClick={() => navigate("/assessment")}
-            className="nav-link collapsed">
+            <a onClick={handleAssessmentClick} className="nav-link collapsed">
               <i className="bi bi-person"></i>
               <span> Assessment Questions </span>
             </a>
           </li>
 
           <li className="nav-item">
-            <a 
-            onClick={() => navigate("/help")}
-            className="nav-link collapsed">
+            <a onClick={() => navigate("/help")} className="nav-link collapsed">
               <i className="bi bi-person"></i>
               <span> Help/Support </span>
             </a>
@@ -112,7 +119,6 @@ function Sidebar() {
 
           <li className="nav-heading">Pages</li>
 
-          {/* Logout item */}
           <li className="nav-item">
             <a onClick={handleSignOut} className="nav-link collapsed">
               <i className="bi bi-box-arrow-in-right"></i>
@@ -121,6 +127,7 @@ function Sidebar() {
           </li>
         </ul>
       </aside>
+
       {loading && (
         <div className="loading-overlay">
           <div className="spinner-border text-primary animate-spin" role="status">

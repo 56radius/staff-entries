@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../../assets/dashboard/assets/css/style.css";
 import "../../assets/dashboard/assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../../assets/dashboard/assets/vendor/bootstrap-icons/bootstrap-icons.css";
@@ -11,6 +12,8 @@ import "../../assets/dashboard/assets/vendor/simple-datatables/style.css";
 import Sidebar from "../../elements/Sidebar";
 
 function QuestionDashboardScreen() {
+    const navigate = useNavigate();
+
     const departments = [
         { id: 1, name: "Cleaning Service", available: true },
         { id: 2, name: "Lecturer Service", available: true },
@@ -34,24 +37,37 @@ function QuestionDashboardScreen() {
         { id: 20, name: "Research Support", available: true },
     ];
 
+    const handleServiceClick = (serviceId) => {
+        navigate(`/assessment/${serviceId}`);
+    };
+
     return (
         <div className="container-fluid">
             <header id="header" className="header fixed-top d-flex align-items-center">
                 <div className="d-flex align-items-center justify-content-between">
-                    <button style={{ borderWidth: 0, marginLeft: "30px", background: "#fff" }} className="logo d-flex align-items-center">
-                        <span className="d-none d-lg-block"> Staff Entry </span>{" "}
+                    <button
+                        style={{ borderWidth: 0, marginLeft: "30px", background: "#fff" }}
+                        className="logo d-flex align-items-center"
+                    >
+                        <span className="d-none d-lg-block">Staff Entry</span>
                     </button>
                     <i className="bi bi-list toggle-sidebar-btn"></i>
                 </div>
                 <nav className="header-nav ms-auto">
                     <ul className="d-flex align-items-center">
                         <li className="nav-item dropdown pe-3">
-                            <a className="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                                <span className="d-none d-md-block dropdown-toggle ps-2"> Merit Mohammed </span>
+                            <a
+                                className="nav-link nav-profile d-flex align-items-center pe-0"
+                                href="#"
+                                data-bs-toggle="dropdown"
+                            >
+                                <span className="d-none d-md-block dropdown-toggle ps-2">
+                                    Merit Mohammed
+                                </span>
                             </a>
                             <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                                 <li className="dropdown-header">
-                                    <h6> Merit Mohammed </h6>
+                                    <h6>Merit Mohammed</h6>
                                     <span>Web Designer</span>
                                 </li>
                                 <li>
@@ -98,7 +114,7 @@ function QuestionDashboardScreen() {
             <main id="main" className="main">
                 <div className="pagetitle">
                     <h1>
-                        <span style={{ color: "green" }}> User's </span> Dashboard
+                        <span style={{ color: "green" }}>User's</span> Dashboard
                     </h1>
                     <nav>
                         <ol className="breadcrumb">
@@ -112,7 +128,7 @@ function QuestionDashboardScreen() {
 
                 <section className="section dashboard">
                     <div className="row">
-                        {departments.map(department => (
+                        {departments.map((department) => (
                             <div className="col-lg-3 col-md-4 col-sm-6 mb-3" key={department.id}>
                                 <div className={`card info-card ${department.available ? 'available' : 'unavailable'}`}>
                                     <div className="card-body">
@@ -128,7 +144,7 @@ function QuestionDashboardScreen() {
                                     </div>
                                     {department.available && (
                                         <div className="card-footer">
-                                            <a href="#" className="btn btn-primary">Access Service</a>
+                                            <button className="btn btn-primary" onClick={() => handleServiceClick(department.id)}>Access Service</button>
                                         </div>
                                     )}
                                 </div>

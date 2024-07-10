@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-//importing the main components
+// Importing the main components
 import SplashScreen from "./components/SplashScreen";
 import LoginScreen from "./components/LoginScreen";
 import SignupScreen from "./components/SignupScreen";
 
-//importing dashboard
+// Importing dashboard components
 import QuestionDashboardScreen from "./components/Dashboard/QuestionDashboardScreen";
 import AssessmentQuestionsScreen from "./components/Dashboard/AssessmentQuestionsScreen";
 import HelpSupportScreen from "./components/Dashboard/HelpSupportScreen";
 import ProfileScreen from "./components/Dashboard/ProfileScreen";
+import NotificationScreen from "./components/Dashboard/NotificationScreen";
 
-//importing Admin components
+// Importing Admin components
 import AdminDashboardScreen from "./components/Admin/AdminDashboardScreen";
-
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -37,10 +37,11 @@ function App() {
           />
           <Route path="/register" element={<SignupScreen />} />
           <Route path="/dashboard" element={<QuestionDashboardScreen />} />
-          <Route path="/assessment" element={<AssessmentQuestionsScreen />} />
+          <Route path="/assessment/:serviceId" element={<AssessmentQuestionsScreen />} />
           <Route path="/profile" element={<ProfileScreen />} />
+          <Route path="/notification" element={<NotificationScreen />} />
           <Route path="/help" element={<HelpSupportScreen />} />
-          <Route path="/admin" element={<AdminDashboardScreen/>} />
+          <Route path="/admin" element={<AdminDashboardScreen />} />
         </Routes>
       </div>
     </Router>
