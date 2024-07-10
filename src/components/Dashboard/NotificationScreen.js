@@ -14,15 +14,31 @@ import Sidebar from "../../elements/Sidebar";
 function NotificationScreen() {
     const navigate = useNavigate();
     const [notifications, setNotifications] = useState([]);
+    const [services, setServices] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Fetch notifications from API or set hardcoded data
-        const fetchedNotifications = [
-            { id: 1, message: "Your application for the Software Engineer role has been accepted.", status: "accepted" },
-            { id: 2, message: "Your application for the Designer role is still under review.", status: "pending" },
-            { id: 3, message: "Your application for the Product Manager role has been rejected.", status: "rejected" },
-        ];
-        setNotifications(fetchedNotifications);
+        // Simulate fetching notifications and services from an API
+        setTimeout(() => {
+            try {
+                const fetchedNotifications = [
+                    { id: 1, message: "Your application for the Software Engineer role has been accepted.", status: "accepted", timestamp: "2024-07-09T10:00:00Z", read: false },
+                    { id: 2, message: "Your application for the Designer role is still under review.", status: "pending", timestamp: "2024-07-08T14:30:00Z", read: true },
+                    { id: 3, message: "Your application for the Product Manager role has been rejected.", status: "rejected", timestamp: "2024-07-07T09:15:00Z", read: true },
+                ];
+                const fetchedServices = [
+                    { id: 1, name: "New Chat Service", status: "Available", predictedTime: "Now" },
+                    { id: 2, name: "Advanced Analytics", status: "Coming Soon", predictedTime: "2024-07-15" },
+                ];
+                setNotifications(fetchedNotifications);
+                setServices(fetchedServices);
+                setLoading(false);
+            } catch (e) {
+                setError("Failed to fetch data");
+                setLoading(false);
+            }
+        }, 2000);
     }, []);
 
     const renderNotificationStatus = (status) => {
@@ -37,6 +53,30 @@ function NotificationScreen() {
                 return <span className="badge bg-secondary">Unknown</span>;
         }
     };
+
+    const handleNotificationClick = (notification) => {
+        // Navigate to a detailed view or perform an action
+        console.log("Notification clicked:", notification);
+    };
+
+    const renderServiceStatus = (status) => {
+        switch (status) {
+            case "Available":
+                return <span className="badge bg-success">Available</span>;
+            case "Coming Soon":
+                return <span className="badge bg-warning">Coming Soon</span>;
+            default:
+                return <span className="badge bg-secondary">Unknown</span>;
+        }
+    };
+
+    if (loading) {
+        return <div className="spinner-border text-primary" role="status"><span className="visually-hidden">Loading...</span></div>;
+    }
+
+    if (error) {
+        return <div className="alert alert-danger" role="alert">{error}</div>;
+    }
 
     return (
         <div className="container-fluid">
@@ -131,14 +171,36 @@ function NotificationScreen() {
                                     <h5 className="card-title">Notifications</h5>
                                     <div className="list-group">
                                         {notifications.map((notification) => (
-                                            <div key={notification.id} className="list-group-item">
+                                            <div
+                                                key={notification.id}
+                                                className={`list-group-item ${notification.read ? "" : "list-group-item-info"}`}
+                                                onClick={() => handleNotificationClick(notification)}
+                                                style={{ cursor: "pointer" }}
+                                            >
                                                 <p>{notification.message}</p>
                                                 {renderNotificationStatus(notification.status)}
+                                                <small className="text-muted">{new Date(notification.timestamp).toLocaleString()}</small>
                                             </div>
                                         ))}
                                     </div>
                                 </div>
                             </div>
+
+                            <div className="card mt-4">
+                                <div className="card-body">
+                                    <h5 className="card-title">Updated Services</h5>
+                                    <div className="list-group">
+                                        {services.map((service) => (
+                                            <div key={service.id} className="list-group-item">
+                                                <h6>{service.name}</h6>
+                                                {renderServiceStatus(service.status)}
+                                                <p className="mb-1">Predicted Time: {service.predictedTime}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </section>
