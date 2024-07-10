@@ -10,6 +10,7 @@ import SignupScreen from "./components/SignupScreen";
 import QuestionDashboardScreen from "./components/Dashboard/QuestionDashboardScreen";
 import AssessmentQuestionsScreen from "./components/Dashboard/AssessmentQuestionsScreen";
 import HelpSupportScreen from "./components/Dashboard/HelpSupportScreen";
+import ProfileScreen from "./components/Dashboard/ProfileScreen";
 
 //importing Admin components
 import AdminDashboardScreen from "./components/Admin/AdminDashboardScreen";
@@ -37,6 +38,7 @@ function App() {
           <Route path="/register" element={<SignupScreen />} />
           <Route path="/dashboard" element={<QuestionDashboardScreen />} />
           <Route path="/assessment" element={<AssessmentQuestionsScreen />} />
+          <Route path="/profile" element={<ProfileScreen />} />
           <Route path="/help" element={<HelpSupportScreen />} />
           <Route path="/admin" element={<AdminDashboardScreen/>} />
         </Routes>
