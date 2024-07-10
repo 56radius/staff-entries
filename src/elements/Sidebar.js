@@ -106,7 +106,7 @@ function Sidebar() {
           <li className="nav-item">
             <a onClick={handleAssessmentClick} className="nav-link collapsed">
               <i className="bi bi-person"></i>
-              <span> Assessment Questionssss </span>
+              <span> Assessment Questions </span>
             </a>
           </li>
 
