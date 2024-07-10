@@ -77,16 +77,6 @@ function Sidebar() {
 
           <li className="nav-item">
             <a
-              onClick={() => navigate("/upload")}
-              className="nav-link collapsed"
-            >
-              <i className="bi bi-dash-circle"></i>
-              <span> Upload Resume/cv </span>
-            </a>
-          </li>
-
-          <li className="nav-item">
-            <a
               onClick={() => navigate("/tracking")}
               className="nav-link collapsed"
               data-bs-target="#charts-nav"
